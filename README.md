@@ -1,12 +1,12 @@
-# Fashion Journal
+# Learning Tensorflow.js
 
 <img align="right" src="https://raw.github.com/3bola/gulp-starter/master/app/img/pipboy.jpg" hspace="20" vspace="10" width="320">
 
-Learning Tensorflow.js
+My progress with Tensorflow.js for Machine Learning 
 
-* Documentation: [https://drive.google.com/drive/folders/1oPnQa7gUSLFs-Znmr-LnKcU5Y-tRz_dA?usp=sharing](Google Docs Collection)
-* Visit staging server: [http://staging.salesfit.tv/](Comming Soon)
-* Visit production server: [http://fj.nativesdev.com.au](Comming Soon)
+* Documentation: [Google Docs Collection](https://drive.google.com/drive/folders/1oPnQa7gUSLFs-Znmr-LnKcU5Y-tRz_dA?usp=sharing)
+* Visit staging server: [Comming Soon](http://staging.salesfit.tv/)
+* Visit production server: [Comming Soon](http://fj.nativesdev.com.au)
 
 ### Features
 
