@@ -1,10 +1,10 @@
 # Learning Tensorflow.js
 
-<img align="right" src="https://raw.github.com/3bola/gulp-starter/master/app/img/pipboy.jpg" hspace="20" vspace="10" width="320">
+<img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/TensorFlowLogo.svg/1200px-TensorFlowLogo.svg.png" hspace="30" vspace="10" width="380">
 
 My progress with Tensorflow.js for Machine Learning 
 
-* Documentation: My articles via [Google Docs Collection](https://drive.google.com/drive/folders/1oPnQa7gUSLFs-Znmr-LnKcU5Y-tRz_dA?usp=sharing)
+* Documentation: [Google Docs Collection](https://drive.google.com/drive/folders/1oPnQa7gUSLFs-Znmr-LnKcU5Y-tRz_dA?usp=sharing)
 * Visit staging server: [(Comming Soon)](http://staging.salesfit.tv/)
 * Visit production server: [(Comming Soon)](http://fj.nativesdev.com.au)
 
