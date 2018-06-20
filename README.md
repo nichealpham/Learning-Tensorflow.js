@@ -4,9 +4,9 @@
 
 My progress with Tensorflow.js for Machine Learning 
 
-* Documentation: [Google Docs Collection](https://drive.google.com/drive/folders/1oPnQa7gUSLFs-Znmr-LnKcU5Y-tRz_dA?usp=sharing)
-* Visit staging server: [Comming Soon](http://staging.salesfit.tv/)
-* Visit production server: [Comming Soon](http://fj.nativesdev.com.au)
+* Documentation: My articles via [Google Docs Collection](https://drive.google.com/drive/folders/1oPnQa7gUSLFs-Znmr-LnKcU5Y-tRz_dA?usp=sharing)
+* Visit staging server: [(Comming Soon)](http://staging.salesfit.tv/)
+* Visit production server: [(Comming Soon)](http://fj.nativesdev.com.au)
 
 ### Features
 
