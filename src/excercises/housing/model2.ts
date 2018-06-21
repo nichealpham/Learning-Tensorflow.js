@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as tf from '@tensorflow/tfjs';
-import DataHelper from '../../helpers/DataHelper';
+import FileHelper from '../../helpers/FileHelper';
 
 import '@tensorflow/tfjs-node';
 // import '@tensorflow/tfjs-node-gpu';
@@ -11,7 +11,7 @@ async function main() {
     let labels_data: any[] = [];
 
     let dataPath = 'database/housing.csv';
-    let csvData = await DataHelper.readCsv(dataPath);
+    let csvData = await FileHelper.readCsv(dataPath);
 
     csvData.forEach(rowData => {
         if (!rowData || !rowData.length || !rowData[0])

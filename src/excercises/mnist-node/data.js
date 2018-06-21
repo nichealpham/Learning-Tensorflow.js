@@ -60,9 +60,11 @@ async function fetchOnceAndSaveToDiskWithBuffer(filename) {
 }
 
 async function readAndReturnBuffer(filename) {
-	return new Promise(resolve => {
-		resolve(readFile(filename));
-		return;
+	return new Promise((resolve, reject) => {
+		fs.readFile(filename, (err, data) => {
+			if (err) reject(err);
+			else resolve(data);
+		});
 	});
 }
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import DataHelper from '../../helpers/DataHelper';
+import FileHelper from '../../helpers/FileHelper';
 import * as tf from '@tensorflow/tfjs';
 import * as Regressor from '../../models/LinearRegressor'; //eslint-disable-line
 
@@ -8,7 +8,7 @@ import '@tensorflow/tfjs-node';
 
 main();
 async function main() {
-    let csvData = await DataHelper.readCsv('database/housing.csv');
+    let csvData = await FileHelper.readCsv('database/housing.csv');
     let labels_data: any[] = [];
     let features_data: any[] = [];
 
