@@ -10,7 +10,7 @@ async function main() {
     let features_data: any[] = [];
     let labels_data: any[] = [];
 
-    let dataPath = 'database/housing.csv';
+    let dataPath = 'db/housing.csv';
     let csvData = await DataHelper.readCsv(dataPath);
 
     csvData.forEach(rowData => {

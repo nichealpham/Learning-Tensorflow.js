@@ -8,7 +8,7 @@ import '@tensorflow/tfjs-node';
 
 main();
 async function main() {
-    let csvData = await DataHelper.readCsv('database/housing.csv');
+    let csvData = await DataHelper.readCsv('db/housing.csv');
     let labels_data: any[] = [];
     let features_data: any[] = [];
 
