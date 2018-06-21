@@ -16,6 +16,8 @@
  */
 
 const tf = require('@tensorflow/tfjs');
+import '@tensorflow/tfjs-node';
+
 const assert = require('assert');
 const fs = require('fs');
 const https = require('https');
@@ -26,10 +28,10 @@ const readFile = util.promisify(fs.readFile);
 
 // MNIST data constants:
 const BASE_URL = 'https://storage.googleapis.com/cvdf-datasets/mnist/';
-const TRAIN_IMAGES_FILE = 'database/mnist/train-images-idx3-ubyte';
-const TRAIN_LABELS_FILE = 'database/mnist/train-labels-idx1-ubyte';
-const TEST_IMAGES_FILE = 'database/mnist/t10k-images-idx3-ubyte';
-const TEST_LABELS_FILE = 'database/mnist/t10k-labels-idx1-ubyte';
+const TRAIN_IMAGES_FILE = 'db/mnist/train-images-idx3-ubyte';
+const TRAIN_LABELS_FILE = 'db/mnist/train-labels-idx1-ubyte';
+const TEST_IMAGES_FILE = 'db/mnist/t10k-images-idx3-ubyte';
+const TEST_LABELS_FILE = 'db/mnist/t10k-labels-idx1-ubyte';
 const IMAGE_HEADER_MAGIC_NUM = 2051;
 const IMAGE_HEADER_BYTES = 16;
 const IMAGE_DIMENSION_SIZE = 28;

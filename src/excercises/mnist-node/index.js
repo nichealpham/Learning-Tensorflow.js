@@ -23,9 +23,9 @@ const timer = require('node-simple-timer');
 const data = require('./data');
 const model = require('./model');
 
-const NUM_EPOCHS = 10;
-const BATCH_SIZE = 100;
 const TEST_SIZE = 50;
+const BATCH_SIZE = 100;
+const NUM_EPOCHS = 10;
 
 async function train() {
 	let step = 0;
@@ -37,7 +37,7 @@ async function train() {
 		if (step % 20 === 0) {
 			const loss = history.history.loss[0].toFixed(6);
 			const acc = history.history.acc[0].toFixed(4);
-			console.log(`  - step: ${step}: loss: ${loss}, accuracy: ${acc}`);
+			console.log(`step: ${step}: loss: ${loss}, accuracy: ${acc}`);
 		}
 		step++;
 	}
