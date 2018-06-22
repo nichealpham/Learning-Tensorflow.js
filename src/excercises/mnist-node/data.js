@@ -16,7 +16,7 @@
  */
 
 const tf = require('@tensorflow/tfjs');
-import '@tensorflow/tfjs-node';
+import '@tensorflow/tfjs-node-gpu';
 
 const assert = require('assert');
 const fs = require('fs');

@@ -3,7 +3,7 @@ import FileHelper from '../../helpers/FileHelper';
 import * as tf from '@tensorflow/tfjs';
 import * as Regressor from '../../models/LinearRegressor'; //eslint-disable-line
 
-import '@tensorflow/tfjs-node';
+import '@tensorflow/tfjs-node-gpu';
 // import '@tensorflow/tfjs-node-gpu';
 
 main();

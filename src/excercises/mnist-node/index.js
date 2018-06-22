@@ -16,7 +16,7 @@
  */
 
 import * as tf from '@tensorflow/tfjs';
-import '@tensorflow/tfjs-node';
+import '@tensorflow/tfjs-node-gpu';
 // tf.setBackend('tensorflow');
 
 const timer = require('node-simple-timer');

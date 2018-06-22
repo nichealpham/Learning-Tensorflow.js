@@ -2,7 +2,7 @@
 import * as tf from '@tensorflow/tfjs';
 import FileHelper from '../../helpers/FileHelper';
 
-import '@tensorflow/tfjs-node';
+import '@tensorflow/tfjs-node-gpu';
 // import '@tensorflow/tfjs-node-gpu';
 
 main();

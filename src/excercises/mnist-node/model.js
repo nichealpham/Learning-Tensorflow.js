@@ -16,7 +16,7 @@
  */
 
 const tf = require('@tensorflow/tfjs');
-import '@tensorflow/tfjs-node';
+import '@tensorflow/tfjs-node-gpu';
 
 const model = tf.sequential();
 model.add(tf.layers.conv2d({
