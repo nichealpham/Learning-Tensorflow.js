@@ -80,56 +80,25 @@ function shuffle(data, label) {
 	}
 }
 
-function loadHeaderValues(buffer, headerLength) {
-	const headerValues = [];
-	for (let i = 0; i < headerLength / 4; i++) {
-		// Header data is stored in-order (aka big-endian)
-		headerValues[i] = buffer.readUInt32BE(i * 4);
-	}
-	return headerValues;
-}
-
 async function loadImages(filename) {
-	const buffer = await FileHelper.default.readAsBuffer(filename);
+	let offsetBytes = 16; 	// Dataset contain 4 collums, each collum is 4 bytes => offset 16 bytes
+	let pixelBytes = 1;		// Each pixel is 1 bytes in depth
+	let imgDimension = {
+		width: 28,
+		height: 28
+	}; 						// image is 28 * 28 pixel
+	let downScale = true;	// Should normallize each value into range 0 -> 1 float32
 
-	const headerBytes = 16; 		// Header has 4 collums, each 4 bytes = 4 * 4 = 16 bytes
-	const recordBytes = 28 * 28; 	// Each record is a 28 * 28 pixel metric, each pixel is 1 bytes => 28 * 28 bytes
-
-	const downsize = 1.0 / 255.0;	// Each bytes of pxiel rnage form 1 -> 255
-
-	const images = [];
-	let index = headerBytes;
-	while (index < buffer.byteLength) {
-		const array = new Float32Array(recordBytes);
-		for (let i = 0; i < recordBytes; i++) {
-			array[i] = buffer.readUInt8(index++) * downsize;
-		}
-		images.push(array);
-	}
-	return images;
+	return await FileHelper.default.readImagesFromBuffer(filename, offsetBytes, imgDimension, pixelBytes, downScale);
 }
 
 async function loadLabels(filename) {
-	const buffer = await FileHelper.default.readAsBuffer(filename);
+	let offsetBytes = 8;	// Labels data contain 2 collumn, each collum 4 bytes => offset 8 bytes
+	let labelColumns = 1;	// We only have 1 label
+	let labelBytes = 1;		// Each label is 1 byte in depth
+	let downScale = false;	// Label range from int 1 -> int 10 => so dont scale it into 0 -> 1
 
-	const headerBytes = LABEL_HEADER_BYTES;
-	const recordBytes = LABEL_RECORD_BYTE;
-
-	const headerValues = loadHeaderValues(buffer, headerBytes);
-	assert.equal(headerValues[0], LABEL_HEADER_MAGIC_NUM);
-
-	const labels = [];
-	let index = headerBytes;
-	while (index < buffer.byteLength) {
-		const array = new Int32Array(recordBytes);
-		for (let i = 0; i < recordBytes; i++) {
-			array[i] = buffer.readUInt8(index++);
-		}
-		labels.push(array);
-	}
-
-	assert.equal(labels.length, headerValues[1]);
-	return labels;
+	return await FileHelper.default.readLabelsFromBuffer(filename, offsetBytes, labelColumns, labelBytes, downScale);
 }
 
 /** Helper class to handle loading training and test data. */
