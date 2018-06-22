@@ -23,6 +23,7 @@ const fs = require('fs');
 const https = require('https');
 const util = require('util');
 const zlib = require('zlib');
+const FileHelper = require('../../helpers/FileHelper');
 
 const readFile = util.promisify(fs.readFile);
 
@@ -32,7 +33,6 @@ const TRAIN_IMAGES_FILE = 'db/mnist/train-images-idx3-ubyte';
 const TRAIN_LABELS_FILE = 'db/mnist/train-labels-idx1-ubyte';
 const TEST_IMAGES_FILE = 'db/mnist/t10k-images-idx3-ubyte';
 const TEST_LABELS_FILE = 'db/mnist/t10k-labels-idx1-ubyte';
-const IMAGE_HEADER_MAGIC_NUM = 2051;
 const IMAGE_HEADER_BYTES = 16;
 const IMAGE_DIMENSION_SIZE = 28;
 const IMAGE_FLAT_SIZE = IMAGE_DIMENSION_SIZE * IMAGE_DIMENSION_SIZE;
@@ -57,15 +57,6 @@ async function fetchOnceAndSaveToDiskWithBuffer(filename) {
 			unzip.on('end', () => {
 				resolve(readFile(filename));
 			});
-		});
-	});
-}
-
-async function readAndReturnBuffer(filename) {
-	return new Promise((resolve, reject) => {
-		fs.readFile(filename, (err, data) => {
-			if (err) reject(err);
-			else resolve(data);
 		});
 	});
 }
@@ -99,17 +90,12 @@ function loadHeaderValues(buffer, headerLength) {
 }
 
 async function loadImages(filename) {
-	const buffer = await readAndReturnBuffer(filename);
+	const buffer = await FileHelper.default.readAsBuffer(filename);
 
-	const headerBytes = IMAGE_HEADER_BYTES;
-	const recordBytes = IMAGE_DIMENSION_SIZE * IMAGE_DIMENSION_SIZE;
+	const headerBytes = 16; 		// Header has 4 collums, each 4 bytes = 4 * 4 = 16 bytes
+	const recordBytes = 28 * 28; 	// Each record is a 28 * 28 pixel metric, each pixel is 1 bytes => 28 * 28 bytes
 
-	const headerValues = loadHeaderValues(buffer, headerBytes);
-	assert.equal(headerValues[0], IMAGE_HEADER_MAGIC_NUM);
-	assert.equal(headerValues[2], IMAGE_DIMENSION_SIZE);
-	assert.equal(headerValues[3], IMAGE_DIMENSION_SIZE);
-
-	const downsize = 1.0 / 255.0;
+	const downsize = 1.0 / 255.0;	// Each bytes of pxiel rnage form 1 -> 255
 
 	const images = [];
 	let index = headerBytes;
@@ -120,13 +106,11 @@ async function loadImages(filename) {
 		}
 		images.push(array);
 	}
-
-	assert.equal(images.length, headerValues[1]);
 	return images;
 }
 
 async function loadLabels(filename) {
-	const buffer = await readAndReturnBuffer(filename);
+	const buffer = await FileHelper.default.readAsBuffer(filename);
 
 	const headerBytes = LABEL_HEADER_BYTES;
 	const recordBytes = LABEL_RECORD_BYTE;
