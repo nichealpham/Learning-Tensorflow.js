@@ -1,14 +1,13 @@
 #!/usr/bin/env node
-import FileHelper from '../../helpers/FileHelper';
 import * as tf from '@tensorflow/tfjs';
-import * as Regressor from '../../models/LinearRegressor'; //eslint-disable-line
-
 import '@tensorflow/tfjs-node';
+import DataHelper from '../../helpers/DataHelper';
 // import '@tensorflow/tfjs-node-gpu';
+import * as Regressor from '../../models/LinearRegressor'; //eslint-disable-line
 
 main();
 async function main() {
-    let csvData = await FileHelper.readCsv('db/housing.csv');
+    let csvData = await DataHelper.readNumericsFromCsv('db/housing.csv');
     let labels_data: any[] = [];
     let features_data: any[] = [];
 

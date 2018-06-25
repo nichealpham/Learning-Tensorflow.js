@@ -12,7 +12,7 @@ My progress with Tensorflow.js for Machine Learning
 
 * Tensorflow.js
 * Nodejs Backend
-* Typescript
+* Typescript Helpers
 
 ### The MIT License (MIT)
 
