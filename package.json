@@ -16,15 +16,17 @@
         "csv-parse": "^2.5.0",
         "csv-parser": "^1.12.1",
         "fs": "0.0.1-security",
+        "node-simple-timer": "^0.1.1",
+        "rimraf": "^2.6.2",
         "ts-node": "^6.1.0",
         "typescript": "^2.9.1",
-        "typescript-eslint-parser": "^16.0.0",
-        "node-simple-timer": "^0.1.1"
+        "typescript-eslint-parser": "^16.0.0"
     },
     "scripts": {
         "build": "./node_modules/.bin/tsc",
         "housing": "node ./dest/excercises/housing/model3.js",
-        "mnist-node": "node ./dest/excercises/mnist-node/index.js"
+        "mnist-node": "node ./dest/excercises/mnist-node/index.js",
+        "mnist-node-refs": "node ./dest/excercises/mnist-node/refs/index.js"
     },
     "devDependencies": {
         "@types/es6-promise": "^3.3.0",
